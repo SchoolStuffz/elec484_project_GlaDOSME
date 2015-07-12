@@ -23,26 +23,24 @@ public class GlaDOS_me extends Activity {
     private MediaPlayer myPlayer;
 
     //path for recorded audio file
-    private String recordedAudio = null;
+    public static String recordedAudio = null;
     //URI for the loaded audio file
-    private Uri loadedAudioFile = null;
-    //output file for processed signal
-    //I just made this a string for a placeholder
-    private String processedAudio = null;
+    public static Uri loadedAudioFile = null;
 
     //buttons and text
     private Button startBtn;
     private Button stopBtn;
     private ImageButton playBtn;
     private ImageButton stopPlayBtn;
+    private ImageButton processPageBtn;
     private Button browseBtn;
-    private Button processBtn;
+
     private TextView text;
 
-    private int CURRENT_AUDIO = 0x00;
+    public static int CURRENT_AUDIO = 0x00;
 
-    private int RECORDED_AUDIO = 0x01;
-    private  int LOADED_AUDIO = 0x02;
+    public static int RECORDED_AUDIO = 0x01;
+    public static int LOADED_AUDIO = 0x02;
 
     public static final String TAG = "StorageClientFragment";
 
@@ -68,16 +66,6 @@ public class GlaDOS_me extends Activity {
             }
         });
 
-        processBtn = (Button)findViewById(R.id.process);
-        processBtn.setEnabled(false);
-        processBtn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                glaDOS_me(v);
-            }
-        });
 
         startBtn = (Button)findViewById(R.id.start);
         startBtn.setOnClickListener(new OnClickListener() {
@@ -127,6 +115,16 @@ public class GlaDOS_me extends Activity {
                 stopPlay(v);
             }
         });
+
+        processPageBtn = (ImageButton)findViewById(R.id.next);
+        processPageBtn.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                processPage(v);
+            }
+        });
     }
     public void browse(View view){
 
@@ -142,11 +140,8 @@ public class GlaDOS_me extends Activity {
         // To search for all documents available via installed storage providers, it would be
         // "*/*".
         intent.setType("audio/*");
-        playBtn.setEnabled(true);
-        startBtn.setEnabled(false);
         startActivityForResult(intent, READ_REQUEST_CODE);
-        processBtn.setEnabled(true);
-        startBtn.setEnabled(true);
+
         CURRENT_AUDIO = LOADED_AUDIO;
     }
 
@@ -201,7 +196,6 @@ public class GlaDOS_me extends Activity {
             stopBtn.setEnabled(false);
             startBtn.setEnabled(true);
             browseBtn.setEnabled(true);
-            processBtn.setEnabled(true);
 
             text.setText("GlaDOS Status: Stopping recording");
 
@@ -209,6 +203,7 @@ public class GlaDOS_me extends Activity {
                     Toast.LENGTH_SHORT).show();
 
             CURRENT_AUDIO = RECORDED_AUDIO;
+
         } catch (IllegalStateException e) {
             //  it is called before start()
             e.printStackTrace();
@@ -283,13 +278,10 @@ public class GlaDOS_me extends Activity {
             e.printStackTrace();
         }
     }
-
-    public void glaDOS_me(View view){
-        //load the audiofile
-
-        //apply filter
-        //overwrite the original audio file
-
+    public void processPage(View view)
+    {
+        Intent intent = new Intent(GlaDOS_me.this, GlaDOS_me_p2.class);
+        startActivity(intent);
     }
-
 }
+

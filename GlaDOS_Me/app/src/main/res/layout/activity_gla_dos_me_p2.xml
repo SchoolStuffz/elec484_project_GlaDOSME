@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="glados.project.elec484.glados_me.GlaDOS_me_p2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="GlaDOS It!"
+        android:id="@+id/textView4"
+        android:textSize="50sp"
+        android:layout_below="@+id/cancel"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GlaDOS It!"
+        android:id="@+id/process"
+        android:layout_marginBottom="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/play"
+        android:src="@android:drawable/ic_media_play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel"
+        android:src="@android:drawable/ic_notification_clear_all"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pitch 1:"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_toRightOf="@+id/cancel"
+        android:layout_toEndOf="@+id/cancel"
+        android:layout_marginTop="38dp" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pitch1"
+        android:layout_below="@+id/textView5"
+        android:layout_toRightOf="@+id/cancel"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:max="100"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pitch 2:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/pitch1"
+        android:layout_toRightOf="@+id/cancel"
+        android:layout_toEndOf="@+id/cancel"
+        android:layout_marginTop="45dp" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pitch2"
+        android:layout_below="@+id/textView6"
+        android:layout_toRightOf="@+id/cancel"
+        android:layout_alignRight="@+id/pitch1"
+        android:layout_alignEnd="@+id/pitch1"
+        android:max="100"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/pitch1Value"
+        android:layout_above="@+id/pitch1"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toStartOf="@+id/play"
+        android:layout_alignRight="@+id/play"
+        android:layout_alignEnd="@+id/play" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/pitch2Value"
+        android:layout_above="@+id/pitch2"
+        android:layout_alignLeft="@+id/pitch1Value"
+        android:layout_alignStart="@+id/pitch1Value"
+        android:layout_alignRight="@+id/pitch1Value"
+        android:layout_alignEnd="@+id/pitch1Value" />
+
+</RelativeLayout>
